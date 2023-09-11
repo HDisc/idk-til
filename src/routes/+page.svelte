@@ -1,2 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import PostCard from '../components/PostCard.svelte';
+	import ThemeToggleButton from './ThemeToggleButton.svelte';
+	export let data;
+</script>
+
+<h1 class="my-5">Wisdom Well</h1>
+
+{#each data.contents as post}
+	<PostCard
+		link={post.id}
+		postType={post.postType[0]}
+		content={post.content}
+		date={post.createdAt}
+	/>
+{/each}
+<ThemeToggleButton />
